@@ -1,0 +1,5 @@
+.text-panel {
+  width: fit-content;
+  display: flex;
+  grid-area: text;
+}

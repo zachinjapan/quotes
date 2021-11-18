@@ -1,0 +1,6 @@
+.button-panel {
+  display: flex;
+  flex-direction: column;
+
+  grid-area: button;
+}
