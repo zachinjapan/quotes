@@ -1,0 +1,15 @@
+.random-quote {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  color: rgb(89, 89, 89);
+  text-align: center;
+  margin-top: 10%;
+}
+
+.random-quote-text {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-family: cursive;
+  font-size: 1.5em;
+}

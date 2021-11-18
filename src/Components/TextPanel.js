@@ -1,11 +1,9 @@
+import React, { useState } from "react";
 import "./TextPanel.css";
+import RandomQuote from "./RandomQuote";
 
 const TextPanel = (props) => {
-  return (
-    <div className="text-panel">
-      <p>test test test test</p>
-    </div>
-  );
+  return <RandomQuote author={props.author} quote={props.quote} />;
 };
 
 export default TextPanel;

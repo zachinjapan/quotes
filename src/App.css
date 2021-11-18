@@ -1,13 +1,18 @@
 .app {
   text-align: center;
   background-color: #acedff;
-  display: grid;
-  grid-template-rows: 100px 1fr;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "title title"
-    "button text";
-  width: 100%;
+  padding: 20px;
+  width: 75%;
+  margin: auto;
+  height: max-content;
+  margin-top: 20%;
+}
+
+@media screen and (max-width: 600px) {
+  .app {
+    margin: 10px;
+    width: 100%;
+  }
 }
 
 .title {
@@ -15,6 +20,22 @@
   color: rgb(38, 38, 38);
   font-weight: bold;
   margin-bottom: 20px;
-  grid-area: title;
   text-align: center;
+  font-family: fantasy;
+}
+button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  width: fit-content;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+div {
+  margin: 50px;
 }
