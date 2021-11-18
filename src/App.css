@@ -1,9 +1,13 @@
-.App {
+.app {
   text-align: center;
-  background-color: #61dafb;
+  background-color: #acedff;
   display: grid;
-  grid-column: 1fr 1fr;
-  grid-template-areas: "button" "text";
+  grid-template-rows: 100px 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "title title"
+    "button text";
+  width: 100%;
 }
 
 .title {
@@ -11,4 +15,6 @@
   color: rgb(38, 38, 38);
   font-weight: bold;
   margin-bottom: 20px;
+  grid-area: title;
+  text-align: center;
 }

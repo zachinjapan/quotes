@@ -5,13 +5,10 @@ import TextPanel from "./Components/TextPanel";
 
 function App() {
   return (
-    <div>
-      <div className="title" />
-      <h1> Test</h1>
-      <div className="app">
-        <ButtonPanel />
-        <TextPanel />
-      </div>
+    <div className="app">
+      <h1 className="title"> Test</h1>
+      <ButtonPanel />
+      <TextPanel />
     </div>
   );
 }
