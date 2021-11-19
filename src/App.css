@@ -1,6 +1,9 @@
 .app {
   text-align: center;
-  background-color: #acedff;
+  background-image: url("./images/background1.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   padding: 20px;
   width: 75%;
   margin: auto;
