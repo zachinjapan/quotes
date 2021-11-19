@@ -11,7 +11,6 @@ function App() {
   const [currentAuthor, setCurrentAuthor] = useState("");
 
   // ths to be used to pick a random quote
-  const [randomNumber, setRandomNumber] = useState(222);
   const [showQuote, setShowQuote] = useState(false);
 
   // array of authors
@@ -38,25 +37,21 @@ function App() {
       />
       <div>
         <button
-          onClick={
-            (() =>
-              setRandomNumber(
-                // random number to pick quote
-                Math.floor(Math.random() * 1643)
-              ),
+          onClick={() => {
+            let random = Math.floor(Math.random() * 1643);
             // showing the quote on the main page
-            setShowQuote(true),
+            setShowQuote(true);
             // setting the current quote and author
-            setCurrentQuote(quotes[randomNumber].text),
-            setCurrentAuthor(quotes[randomNumber].author),
+            setCurrentQuote(quotes[random].text);
+            setCurrentAuthor(quotes[random].author);
             setAllAuthors([
               quotes[Math.floor(Math.random() * 1643)].author,
               quotes[Math.floor(Math.random() * 1643)].author,
               quotes[Math.floor(Math.random() * 1643)].author,
-              quotes[randomNumber].author,
-            ]),
-            console.log(allAuthors))
-          }
+              quotes[random].author,
+            ]);
+            console.log(allAuthors);
+          }}
         >
           New Random Quote
         </button>
