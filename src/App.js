@@ -11,14 +11,11 @@ function App() {
   const [currentAuthor, setCurrentAuthor] = useState("");
 
   // ths to be used to pick a random quote
-  const [randomNumber, setRandomNumber] = useState(0);
+  const [randomNumber, setRandomNumber] = useState(222);
   const [showQuote, setShowQuote] = useState(false);
 
-  // array of wrong authors
-
-  let [wrongAuthor1, setWrongAuthor1] = useState("");
-  let [wrongAuthor2, setWrongAuthor2] = useState("");
-  let [wrongAuthor3, setWrongAuthor3] = useState("");
+  // array of authors
+  let [allAuthors, setAllAuthors] = useState([]);
 
   useEffect(() => {
     const fetchQuotes = async () => {
@@ -35,29 +32,30 @@ function App() {
     <div className="app">
       <h1 className="title">Who said this famous quote?</h1>
       <TextPanel
-        incorrectAuthor1={wrongAuthor1}
-        incorrectAuthor2={wrongAuthor2}
-        incorrectAuthor3={wrongAuthor3}
+        allAuthors={allAuthors}
         quote={showQuote ? currentQuote : "Click to see a random quote"}
         author={showQuote ? currentAuthor : "N/A"}
       />
-      <div className="button-panel">
+      <div>
         <button
-          onClick={() =>
-            setRandomNumber(
-              // random number to pick quote
-              Math.floor(Math.random() * 1643),
-              // showing the quote on the main page
-              setShowQuote(true),
-              // setting the current quote and author
-              setCurrentQuote(quotes[randomNumber].text),
-              setCurrentAuthor(quotes[randomNumber].author),
-
-              // setting the wrong authors
-              setWrongAuthor1(quotes[Math.floor(Math.random() * 1643)].author),
-              setWrongAuthor2(quotes[Math.floor(Math.random() * 1643)].author),
-              setWrongAuthor3(quotes[Math.floor(Math.random() * 1643)].author)
-            )
+          onClick={
+            (() =>
+              setRandomNumber(
+                // random number to pick quote
+                Math.floor(Math.random() * 1643)
+              ),
+            // showing the quote on the main page
+            setShowQuote(true),
+            // setting the current quote and author
+            setCurrentQuote(quotes[randomNumber].text),
+            setCurrentAuthor(quotes[randomNumber].author),
+            setAllAuthors([
+              quotes[Math.floor(Math.random() * 1643)].author,
+              quotes[Math.floor(Math.random() * 1643)].author,
+              quotes[Math.floor(Math.random() * 1643)].author,
+              quotes[randomNumber].author,
+            ]),
+            console.log(allAuthors))
           }
         >
           New Random Quote

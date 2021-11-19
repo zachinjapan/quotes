@@ -4,16 +4,28 @@ import RandomQuote from "./RandomQuote";
 import OptionButton from "./OptionButton";
 
 const TextPanel = (props) => {
+  function checkIfButtonValueIsAuthor(testAuthor, realAuthor) {
+    console.log(testAuthor, realAuthor);
+    if (testAuthor === realAuthor) {
+      console.log("true");
+    } else {
+      console.log("not the author");
+    }
+    return;
+  }
+  function check(author, real) {
+    return () => {
+      checkIfButtonValueIsAuthor(author, real);
+    };
+  }
   return (
     <div className="text-panel">
       <RandomQuote author={props.author} quote={props.quote} />
-      <div className="option-panel">
-        {/* always the right button */}
-        <OptionButton letter="A " text={props.author} />
-        <OptionButton letter="B " text={props.incorrectAuthor1} />
-        <OptionButton letter="C " text={props.incorrectAuthor2} />
-        <OptionButton letter="D " text={props.incorrectAuthor3} />
-      </div>
+      <section className="option-panel">
+        {props.allAuthors.map((author) => (
+          <OptionButton text={author} onClick={check(author, props.author)} />
+        ))}
+      </section>
     </div>
   );
 };
