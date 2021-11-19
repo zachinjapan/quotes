@@ -4,25 +4,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 20px;
-  width: 75%;
+  width: 100%;
   margin: auto;
-  height: max-content;
-  margin-top: 20%;
-}
-
-@media screen and (max-width: 600px) {
-  .app {
-    margin: 10px;
-    width: 100%;
-  }
+  height: 100vh;
 }
 
 .title {
   font-size: 40px;
   color: rgb(38, 38, 38);
   font-weight: bold;
-  margin-bottom: 20px;
   text-align: center;
   font-family: fantasy;
 }
@@ -37,8 +27,4 @@ button {
 
 button:hover {
   opacity: 0.8;
-}
-
-div {
-  margin: 50px;
 }

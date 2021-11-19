@@ -9,8 +9,16 @@ function App() {
   const [quotes, setQuotes] = useState({});
   const [currentQuote, setCurrentQuote] = useState("");
   const [currentAuthor, setCurrentAuthor] = useState("");
+
+  // ths to be used to pick a random quote
   const [randomNumber, setRandomNumber] = useState(0);
   const [showQuote, setShowQuote] = useState(false);
+
+  // array of wrong authors
+
+  let [wrongAuthor1, setWrongAuthor1] = useState("");
+  let [wrongAuthor2, setWrongAuthor2] = useState("");
+  let [wrongAuthor3, setWrongAuthor3] = useState("");
 
   useEffect(() => {
     const fetchQuotes = async () => {
@@ -21,10 +29,15 @@ function App() {
     fetchQuotes();
   }, []);
 
+  //
+
   return (
     <div className="app">
-      <h1 className="title"> Famous Quotes</h1>
+      <h1 className="title">Who said this famous quote?</h1>
       <TextPanel
+        incorrectAuthor1={wrongAuthor1}
+        incorrectAuthor2={wrongAuthor2}
+        incorrectAuthor3={wrongAuthor3}
         quote={showQuote ? currentQuote : "Click to see a random quote"}
         author={showQuote ? currentAuthor : "N/A"}
       />
@@ -32,10 +45,18 @@ function App() {
         <button
           onClick={() =>
             setRandomNumber(
-              Math.floor(Math.random() * 1000),
+              // random number to pick quote
+              Math.floor(Math.random() * 1643),
+              // showing the quote on the main page
               setShowQuote(true),
+              // setting the current quote and author
               setCurrentQuote(quotes[randomNumber].text),
-              setCurrentAuthor(quotes[randomNumber].author)
+              setCurrentAuthor(quotes[randomNumber].author),
+
+              // setting the wrong authors
+              setWrongAuthor1(quotes[Math.floor(Math.random() * 1643)].author),
+              setWrongAuthor2(quotes[Math.floor(Math.random() * 1643)].author),
+              setWrongAuthor3(quotes[Math.floor(Math.random() * 1643)].author)
             )
           }
         >
