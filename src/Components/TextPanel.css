@@ -1,3 +1,8 @@
 .text-panel {
   width: 100%;
 }
+
+.correct-answer {
+  /* background-color: greenyellow; */
+  /* border: 5px solid hotpink; */
+}
