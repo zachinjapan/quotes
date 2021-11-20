@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import TextPanel from "./Components/TextPanel";
+import Counter from "./Components/Counter";
 
 function App() {
   // set up quotes araay and set displayed quote
@@ -25,11 +26,6 @@ function App() {
 
     fetchQuotes();
   }, []);
-
-  // function to randomize array
-  function randomizeArray(arr) {
-    return arr.sort(() => Math.random() - 0.5);
-  }
 
   return (
     <div className="app">
@@ -57,8 +53,6 @@ function App() {
                 quotes[random].author,
               ].sort(() => Math.random() - 0.5)
             );
-
-            // taking that array and randomizing it test
           }}
         >
           New Random Quote

@@ -1,50 +1,61 @@
-import React, { useState } from 'react';
-import './TextPanel.css';
-import RandomQuote from './RandomQuote';
+import React, { useState } from "react";
+import "./TextPanel.css";
+import RandomQuote from "./RandomQuote";
+import Counter from "./Counter";
 
 const TextPanel = (props) => {
-	function checkIfButtonValueIsAuthor(testAuthor, realAuthor) {
-		console.log('testAuthor, realAuthor');
-		if (testAuthor === realAuthor) {
-			console.log('true');
-			return true;
-		} else {
-			console.log('not the author');
-			return false;
-		}
-	}
-	const [ buttonColor, setButtonColor ] = useState('black');
+  // function to check the button clicked
+  function checkIfButtonValueIsAuthor(testAuthor, realAuthor) {
+    if (testAuthor === realAuthor) {
+      console.log("true");
+      return true;
+    } else {
+      console.log("not the author");
+      return false;
+    }
+  }
+  //   set the default color of the button
+  const [buttonColor, setButtonColor] = useState("black");
 
-	return (
-		<div className="text-panel">
-			<RandomQuote author={props.author} quote={props.quote} />
-			<section className="option-panel">
-				{props.allAuthors.map((author, index) => (
-					<button
-						style={{ backgroundColor: buttonColor }}
-						// on click function
-						onClick={() => {
-							console.log(index);
-							if (checkIfButtonValueIsAuthor(author, props.author)) {
-								setButtonColor('darkgreen');
-								setTimeout(() => {
-									setButtonColor('black');
-								}, 2000);
-							} else {
-								setButtonColor('#ff0000');
-								setTimeout(() => {
-									setButtonColor('black');
-								}, 1500);
-							}
-						}}
-					>
-						{/* rules for setting the button to prevent blank buttons */}
-						{author === null && author !== props.author ? ' Jesus ' : author === null ? 'N/A' : author}
-					</button>
-				))}
-			</section>
-		</div>
-	);
+  //   counter variable to keep track of the number of correct answers
+
+  const [count, setCounter] = useState(0);
+
+  return (
+    <div className="text-panel">
+      <RandomQuote author={props.author} quote={props.quote} />
+      <section className="option-panel">
+        {props.allAuthors.map((author, index) => (
+          <button
+            style={{ backgroundColor: buttonColor }}
+            // on click function
+            onClick={() => {
+              console.log(index);
+              if (checkIfButtonValueIsAuthor(author, props.author)) {
+                setButtonColor("darkgreen");
+                setTimeout(() => {
+                  setButtonColor("black");
+                }, 2000);
+              } else {
+                setButtonColor("#ff0000");
+                setTimeout(() => {
+                  setButtonColor("black");
+                }, 1500);
+              }
+            }}
+          >
+            {/* rules for setting the button to prevent blank buttons */}
+            {author === null && author !== props.author
+              ? " Jesus "
+              : author === null
+              ? "N/A"
+              : author}
+          </button>
+        ))}
+      </section>
+      <Counter count={count} />
+    </div>
+  );
 };
 
 export default TextPanel;
