@@ -26,7 +26,10 @@ function App() {
     fetchQuotes();
   }, []);
 
-  //
+  // function to randomize array
+  function randomizeArray(arr) {
+    return arr.sort(() => Math.random() - 0.5);
+  }
 
   return (
     <div className="app">
@@ -46,12 +49,15 @@ function App() {
             setCurrentQuote(quotes[random].text);
             setCurrentAuthor(quotes[random].author);
             // setting the all authors array
-            setAllAuthors([
-              quotes[Math.floor(Math.random() * 1643)].author,
-              quotes[Math.floor(Math.random() * 1643)].author,
-              quotes[Math.floor(Math.random() * 1643)].author,
-              quotes[random].author,
-            ]);
+            setAllAuthors(
+              [
+                quotes[Math.floor(Math.random() * 1643)].author,
+                quotes[Math.floor(Math.random() * 1643)].author,
+                quotes[Math.floor(Math.random() * 1643)].author,
+                quotes[random].author,
+              ].sort(() => Math.random() - 0.5)
+            );
+
             // taking that array and randomizing it test
           }}
         >
