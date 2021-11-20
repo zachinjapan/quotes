@@ -29,12 +29,12 @@ const TextPanel = (props) => {
 								setButtonColor('darkgreen');
 								setTimeout(() => {
 									setButtonColor('black');
-								}, 2000);
+								}, 1500);
 							} else {
 								setButtonColor('#ff0000');
 								setTimeout(() => {
 									setButtonColor('black');
-								}, 1500);
+								}, 1000);
 							}
 						}}
 					>
