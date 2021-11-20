@@ -52,7 +52,7 @@ function App() {
               quotes[Math.floor(Math.random() * 1643)].author,
               quotes[random].author,
             ]);
-            console.log(allAuthors);
+            // taking that array and randomizing it test
           }}
         >
           New Random Quote
