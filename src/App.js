@@ -19,7 +19,7 @@ function App() {
 
   // function to replace null and identical authors with "Unknown"
   const replaceNull = (author, realAuthor) => {
-    if (author === null || author === realAuthor) {
+    if (author === null) {
       return "Unknown";
     } else {
       return author;
