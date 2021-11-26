@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./TextPanel.css";
 import RandomQuote from "./RandomQuote";
 import Button from "./Button.js";
