@@ -27,6 +27,5 @@ const TextPanel = (props) => {
         <RandomQuote author={props.author} quote={props.quote} />
       </div>
     );
-};
 
 export default TextPanel;
