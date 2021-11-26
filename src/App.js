@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import TextPanel from "./Components/TextPanel";
+import Title from "./Components/Title";
 
 function App() {
   // set up quotes araay and set displayed quote
@@ -10,12 +11,20 @@ function App() {
   const [currentQuote, setCurrentQuote] = useState("");
   const [currentAuthor, setCurrentAuthor] = useState("");
 
-  // ths to be used to show the quote
+  // ths to be used to show the quote once the user starts the app
   const [showQuote, setShowQuote] = useState(false);
 
-  // array of authors to be set as the correct author and 3 random authors
+  // array of authors to be set as the correct author and 3 random authors then randomized
   let [allAuthors, setAllAuthors] = useState([]);
 
+  // function to replace null and identical authors with "Unknown"
+  const replaceNull = (author, realAuthor) => {
+    if (author === null || author === realAuthor) {
+      return "Unknown";
+    } else {
+      return author;
+    }
+  };
   // get the quotes from the api
   useEffect(() => {
     const fetchQuotes = async () => {
@@ -26,19 +35,16 @@ function App() {
     fetchQuotes();
   }, []);
 
-  // function to randomize array
-  function randomizeArray(arr) {
-    return arr.sort(() => Math.random() - 0.5);
-  }
-
   return (
     <div className="app">
-      <h1 className="title">Who said this famous quote?</h1>
+      <Title />
       <TextPanel
+        displayQuote={showQuote}
         allAuthors={allAuthors}
         // if the main button is clicked show the quote
         quote={showQuote ? currentQuote : "Click to see a random quote"}
         author={showQuote ? currentAuthor : "N/A"}
+        letter={["A", "B", "C", "D"]}
       />
       <div>
         <button
@@ -48,17 +54,19 @@ function App() {
             // setting the current quote and author
             setCurrentQuote(quotes[random].text);
             setCurrentAuthor(quotes[random].author);
-            // setting the all authors array
+            // setting the all authors array, randmomizing the authors, and setting the final authors array to pass down
             setAllAuthors(
               [
                 quotes[Math.floor(Math.random() * 1643)].author,
                 quotes[Math.floor(Math.random() * 1643)].author,
                 quotes[Math.floor(Math.random() * 1643)].author,
                 quotes[random].author,
-              ].sort(() => Math.random() - 0.5)
+              ]
+                .sort(() => Math.random() - 0.5)
+                .map((author) => {
+                  return replaceNull(author, quotes[random].author);
+                })
             );
-
-            // taking that array and randomizing it test
           }}
         >
           New Random Quote
