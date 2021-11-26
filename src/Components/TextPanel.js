@@ -28,5 +28,4 @@ const TextPanel = (props) => {
       </div>
     );
 };
-
 export default TextPanel;
