@@ -18,7 +18,7 @@ function App() {
   let [allAuthors, setAllAuthors] = useState([]);
 
   // function to replace null and identical authors with "Unknown"
-  const replaceNull = (author, realAuthor) => {
+  const replaceNull = (author) => {
     if (author === null) {
       return "Unknown";
     } else {
@@ -53,7 +53,9 @@ function App() {
             setShowQuote(true);
             // setting the current quote and author
             setCurrentQuote(quotes[random].text);
-            setCurrentAuthor(quotes[random].author);
+            setCurrentAuthor(
+              quotes[random].author === null ? "Unknown" : quotes[random].author
+            );
             // setting the all authors array, randmomizing the authors, and setting the final authors array to pass down
             setAllAuthors(
               [
@@ -64,7 +66,7 @@ function App() {
               ]
                 .sort(() => Math.random() - 0.5)
                 .map((author) => {
-                  return replaceNull(author, quotes[random].author);
+                  return replaceNull(author);
                 })
             );
           }}
