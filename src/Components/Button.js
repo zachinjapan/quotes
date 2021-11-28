@@ -34,7 +34,7 @@ const Button = (props) => {
 
   // check if button clicked is correct
   function checkIfButtonValueIsAuthor(testAuthor, realAuthor) {
-    if (testAuthor == realAuthor) {
+    if (testAuthor === realAuthor) {
       console.log("correct");
       changeButtonColor(true);
       setButtonDisabled(true);

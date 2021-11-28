@@ -1,5 +1,4 @@
 // counter react component
-import React, { useState } from "react";
 import { connect } from "react-redux";
 
 const Counter = (props) => {
