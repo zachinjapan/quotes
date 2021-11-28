@@ -10,17 +10,6 @@ import reducerFunc from "./Redux/reducers";
 
 const store = createStore(reducerFunc);
 
-const incrementAction = {
-  type: "INCREMENT",
-};
-const resetAction = {
-  type: "Rest",
-};
-export default {
-  incrementAction,
-  resetAction,
-};
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
