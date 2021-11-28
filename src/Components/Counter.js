@@ -9,7 +9,7 @@ const Counter = (props) => {
           color: "white",
         }}
       >
-        Correct in a row Count: {props.count}
+        Correct in a row: {props.count}
       </h1>
     </div>
   );
