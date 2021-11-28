@@ -10,7 +10,7 @@ const TextPanel = (props) => {
         <div className="button-panel">
           {props.allAuthors.map((author, index) => (
             <Button
-              key={index}
+              key={props.keys[index]}
               buttonColor={props.buttonColor}
               author={author}
               realAuthor={props.author}
