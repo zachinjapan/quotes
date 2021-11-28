@@ -3,8 +3,10 @@ import axios from "axios";
 import "./App.css";
 import TextPanel from "./Components/TextPanel";
 import Title from "./Components/Title";
+import Counter from "./Components/Counter";
+import { connect } from "react-redux";
 
-function App() {
+function App(props) {
   // set up quotes araay and set displayed quote
 
   const [quotes, setQuotes] = useState({});
@@ -35,20 +37,35 @@ function App() {
     fetchQuotes();
   }, []);
 
+  // set 4 random numbers to used as the keys so that buttons rerender each time
+  let [keys, setKeys] = useState([]);
+
+  //functin to set the keys to random numbers from 1- 1000
+  const setRandomKeys = () => {
+    let randomKeys = [];
+    for (let i = 0; i < 4; i++) {
+      randomKeys.push(Math.floor(Math.random() * 1000) + 1);
+    }
+    setKeys(randomKeys);
+  };
+
   return (
     <div className="app">
       <Title />
       <TextPanel
         displayQuote={showQuote}
         allAuthors={allAuthors}
+        keys={keys}
         // if the main button is clicked show the quote
         quote={showQuote ? currentQuote : "Click to see a random quote"}
         author={showQuote ? currentAuthor : "N/A"}
         letter={["A", "B", "C", "D"]}
       />
       <div>
+        <Counter />
         <button
           onClick={() => {
+            setRandomKeys();
             let random = Math.floor(Math.random() * 1643);
             setShowQuote(true);
             // setting the current quote and author
@@ -71,11 +88,17 @@ function App() {
             );
           }}
         >
-          New Random Quote
+          New Quote
         </button>
       </div>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    count: state.count,
+  };
+};
+
+export default connect(mapStateToProps)(App);
