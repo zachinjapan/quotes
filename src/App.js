@@ -5,7 +5,6 @@ import TextPanel from "./Components/TextPanel";
 import Title from "./Components/Title";
 import Counter from "./Components/Counter";
 import { connect } from "react-redux";
-// import toast, { Toaster } from "react-hot-toast";
 
 function App(props) {
   // set up quotes araay and set displayed quote
@@ -78,9 +77,6 @@ function App(props) {
   } else {
     return (
       <div className="app">
-        <div>
-          {/* <Toaster position="bottom-left" reverseOrder={false} /> */}
-        </div>
         <Title />
         <TextPanel
           displayQuote={showQuote}

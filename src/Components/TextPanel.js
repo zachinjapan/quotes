@@ -2,6 +2,7 @@ import "./TextPanel.css";
 import RandomQuote from "./RandomQuote";
 import Button from "./Button.js";
 
+// contains the quote and author buttons
 const TextPanel = (props) => {
   if (props.displayQuote) {
     return (
