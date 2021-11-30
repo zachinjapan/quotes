@@ -62,7 +62,8 @@ const AuthorButton = (props) => {
 		return (
 			<button
 				style={{
-					backgroundColor: props.author === props.realAuthor ? 'green' : '#ff0000'
+					backgroundColor: props.author === props.realAuthor ? 'green' : '#ff0000',
+					margin: '20px'
 				}}
 				disabled={true}
 			>
@@ -73,7 +74,11 @@ const AuthorButton = (props) => {
 		// what to show if round over is false
 	} else {
 		return (
-			<button style={{ backgroundColor: buttonColor }} disabled={buttonDisabled} onClick={clickHandler}>
+			<button
+				style={{ backgroundColor: buttonColor, margin: '20px' }}
+				disabled={buttonDisabled}
+				onClick={clickHandler}
+			>
 				{`${props.letter}: ${props.author}`}
 			</button>
 		);
