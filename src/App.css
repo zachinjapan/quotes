@@ -1,5 +1,6 @@
 body {
 	background: #303131;
+	height: 100vh;
 }
 
 .app {
@@ -9,7 +10,6 @@ body {
 	background-position: center;
 	width: 100%;
 	margin: auto;
-	height: 100vh;
 }
 
 .title {

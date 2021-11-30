@@ -5,8 +5,10 @@ import AuthorButton from './AuthorButton.js';
 const TextPanel = (props) => {
 	if (props.displayQuote) {
 		return (
-			<div className="text-panel">
-				<RandomQuote author={props.author} quote={props.quote} />
+			<div className="container">
+				<div className="text-panel">
+					<RandomQuote author={props.author} quote={props.quote} />
+				</div>
 				<div className="button-panel">
 					{props.allAuthors.map((author, index) => (
 						<AuthorButton
