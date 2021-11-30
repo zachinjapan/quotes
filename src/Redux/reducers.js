@@ -1,7 +1,7 @@
 export default function reducerFunc(
   state = {
     count: 0,
-    roundOver: false,
+    roundOver: true,
   },
   action
 ) {
