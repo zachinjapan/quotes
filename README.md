@@ -34,7 +34,7 @@ A React app using a famous quotes api and React Redux to create an interactive g
 
 ## Roles
 
-Zach Stone : Full Stack (functionality) </br>
+Zach Stone : Frontend (functionality) </br>
 Cliford Morin : Frontend (styling)
 
 ## Technologies Used
