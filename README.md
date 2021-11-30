@@ -9,7 +9,6 @@
     <img src="https://img.shields.io/tokei/lines/github/zachinjapan/quotes?style=plastic" alt="Total Lines" />
     <img src="https://img.shields.io/github/last-commit/zachinjapan/quotes?style=plastic" alt="Last Commit" />  
     <img src="https://img.shields.io/github/issues/zachinjapan/quotes?style=plastic" alt="Issues" />  
-    <img src="https://img.shields.io/github/followers/zachinjapan?style=social" alt="Followers" />  
 </p>
 
 ## Description
