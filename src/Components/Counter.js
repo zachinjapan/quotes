@@ -1,4 +1,3 @@
-// counter react component
 import { connect } from "react-redux";
 
 const Counter = (props) => {

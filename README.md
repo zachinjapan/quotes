@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Random Quote Quiz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+</br>
+<p align="center">
+    <img src="https://img.shields.io/github/languages/count/zachinjapan/quotes?style=plastic" alt="Languages" />
+    <img src="https://img.shields.io/github/languages/top/zachinjapan/quotes?style=plastic&labelColor=yellow" alt="Top Language" />
+    <img src="https://img.shields.io/github/languages/code-size/zachinjapan/quotes?style=plastic" alt="Code Size" />
+    <img src="https://img.shields.io/github/repo-size/zachinjapan/quotes?style=plastic" alt="Repo Size" />   
+    <img src="https://img.shields.io/tokei/lines/github/zachinjapan/quotes?style=plastic" alt="Total Lines" />
+    <img src="https://img.shields.io/github/last-commit/zachinjapan/quotes?style=plastic" alt="Last Commit" />  
+    <img src="https://img.shields.io/github/issues/zachinjapan/quotes?style=plastic" alt="Issues" />  
+    <img src="https://img.shields.io/github/followers/zachinjapan?style=social" alt="Followers" />  
+</p>
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+A React app using a famous quotes api and React Redux to create an interactive game for the user.
 
-### `npm start`
+</br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Links](#links)
+- [Roles](#roles)
+- [Technologies Used](#technologies-used)
+- [License](#license)
+- [Contributions](#contributions)
+- [Questions](#questions)
 
-### `npm test`
+## Links
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- demo site link: (https://quotequiz.netlify.app)
+- Github Repository URL: (https://github.com/zachinjapan/quotes)
 
-### `npm run build`
+## Roles
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Zach Stone : Frontend (functionality) </br>
+Cliford Morin : Frontend (styling)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p align="center">
+  <img src="https://img.shields.io/badge/-HTML-orange?style=for-the-badge"  alt="HMTL" /></a>
+<img src="https://img.shields.io/badge/-CSS-blue?style=for-the-badge" alt="CSS" /></a>
+  <img src="https://img.shields.io/badge/-Javascript-yellow?style=for-the-badge" alt="Javascript" /></a>
+  <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB">
+  <img src="https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white">
+</p>
 
-### `npm run eject`
+## License
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[![MIT](https://img.shields.io/badge/license-MIT-green?style=plastic)](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Fork, request, or contact Zach Stone or Clifford Morin
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Questions
 
-## Learn More
+#### Zach Stone
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[![GitHub](https://img.shields.io/badge/My%20GitHub-Click%20Me!-blueviolet?style=plastic&logo=GitHub)](https://github.com/zachinjapan)
+[![LinkedIn](https://img.shields.io/badge/My%20LinkedIn-Click%20Me!-grey?style=plastic&logo=LinkedIn&labelColor=blue)](https://www.linkedin.com/in/zach-stone-45b649211/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Cliford Morin
 
-### Code Splitting
+[![GitHub](https://img.shields.io/badge/My%20GitHub-Click%20Me!-blueviolet?style=plastic&logo=GitHub)](https://github.com/CliffordMorin)
+[![LinkedIn](https://img.shields.io/badge/My%20LinkedIn-Click%20Me!-grey?style=plastic&logo=LinkedIn&labelColor=blue)](https://www.linkedin.com/in/morin-clifford-129888a9/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+このプロジェクトに関するご質問は、zachinjapan888s@gmail.comまでお気軽にご連絡ください。
 
-### Analyzing the Bundle Size
+このプロジェクトに関するご質問は、cemorin21@gmail.comまでお気軽にご連絡ください。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Feel free to reach Zach at zachinjapan888s@gmail.com with any question regarding this project!
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to reach Cliff at cemorin21@gmail.com with any question regarding this project!
