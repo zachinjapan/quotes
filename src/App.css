@@ -46,6 +46,8 @@ button:hover {
 	overflow: hidden;
 	right: 50%;
 	transform: translate(50%, -50%);
+	background: linear-gradient(145deg, #2b2c2c, #333434);
+	box-shadow: 20px 20px 37px #292a2a, -20px -20px 37px #373838;
 }
 
 .gameButton:hover {

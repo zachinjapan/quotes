@@ -25,9 +25,9 @@ const AuthorButton = (props) => {
 
 	function changeButtonColor(trueOrFalse) {
 		if (trueOrFalse) {
-			setButtonColor('green');
+			setButtonColor('#3AC357');
 		} else {
-			setButtonColor('#ff0000');
+			setButtonColor('#EE3116');
 		}
 	}
 
@@ -62,7 +62,7 @@ const AuthorButton = (props) => {
 		return (
 			<button
 				style={{
-					backgroundColor: props.author === props.realAuthor ? 'green' : '#ff0000',
+					backgroundColor: props.author === props.realAuthor ? '#3AC357' : '#EE3116',
 					margin: '20px'
 				}}
 				disabled={true}
