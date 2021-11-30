@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { connect } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 
 const Button = (props) => {
   const handleInc = (evt) => {
@@ -19,6 +20,11 @@ const Button = (props) => {
     });
   };
 
+  // const notify = () =>
+  // toast("Good Job!", {
+  // icon: "👏",
+  // });
+
   function clickHandler() {
     return checkIfButtonValueIsAuthor(props.author, props.realAuthor);
   }
@@ -26,6 +32,7 @@ const Button = (props) => {
   function changeButtonColor(trueOrFalse) {
     if (trueOrFalse) {
       setButtonColor("green");
+      // notify();
     } else {
       setButtonColor("#ff0000");
     }
