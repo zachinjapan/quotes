@@ -110,7 +110,6 @@ function App(props) {
             className="gameButton"
             onClick={() => {
               handleRoundStart();
-              setRandomKeys();
               setCorrectAuthorIndex(Math.floor(Math.random() * 1643));
               setShowQuote(true);
               setCurrentQuote(quotes[correctAuthorIndex].text);
@@ -136,6 +135,7 @@ function App(props) {
               );
 
               setIndexOfAuthorChecked(0);
+              setRandomKeys();
             }}
           >
             <span />
