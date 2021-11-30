@@ -1,22 +1,20 @@
-import "./RandomQuote.css";
+import './RandomQuote.css';
+import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const RandomQuote = (props) => {
-  let twitterUrl =
-    "https://twitter.com/intent/tweet?text=" +
-    props.quote +
-    " - " +
-    props.author;
+	let twitterUrl = 'https://twitter.com/intent/tweet?text=' + props.quote + ' - ' + props.author;
 
-  return (
-    <div className="random-quote">
-      <p className="random-quote-text">"{props.quote}"</p>
-      {/* just for testing */}
-      <h1> {props.author}</h1>
-      <a class="twitter-share-button" href={twitterUrl}>
-        Tweet
-      </a>
-    </div>
-  );
+	return (
+		<div className="random-quote">
+			<p className="random-quote-text">"{props.quote}"</p>
+			{/* just for testing */}
+			<h1> {props.author}</h1>
+			<a class="twitter-share-button" href={twitterUrl}>
+				<FontAwesomeIcon icon={faTwitterSquare} size="3x" spin />
+			</a>
+		</div>
+	);
 };
 
 export default RandomQuote;
