@@ -16,7 +16,7 @@ const RandomQuote = (props) => {
       {/* just for testing */}
       <h1> {props.author}</h1>
       <a class="twitter-share-button" href={twitterUrl}>
-        <FontAwesomeIcon icon={faTwitterSquare} size="3x" spin />
+        <FontAwesomeIcon icon={faTwitterSquare} size="2x" />
       </a>
     </div>
   );
