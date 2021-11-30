@@ -13,14 +13,11 @@ function App(props) {
   const [quotes, setQuotes] = useState({});
   const [currentQuote, setCurrentQuote] = useState("");
   const [currentAuthor, setCurrentAuthor] = useState("");
-
-  // ths to be used to show the quote once the user starts the app
   const [showQuote, setShowQuote] = useState(false);
 
   // array of authors to be set as the correct author and 3 random authors then randomized
   let [allAuthors, setAllAuthors] = useState([]);
 
-  // function to replace null and identical authors with "Unknown"
   const replaceNull = (author) => {
     if (author === null) {
       return "Unknown";
@@ -28,6 +25,7 @@ function App(props) {
       return author;
     }
   };
+
   // get the quotes from the api
   useEffect(() => {
     const fetchQuotes = async () => {
@@ -41,7 +39,7 @@ function App(props) {
   // set 4 random numbers to used as the keys so that buttons rerender each time
   let [keys, setKeys] = useState([]);
 
-  //functin to set the keys to random numbers from 1- 1000
+  //function to set the keys to random numbers from 1- 1000
   const setRandomKeys = () => {
     let randomKeys = [];
     for (let i = 0; i < 4; i++) {
@@ -50,7 +48,7 @@ function App(props) {
     setKeys(randomKeys);
   };
 
-  // fuctino to restart the round
+  // fuction to restart the round
 
   const handleRoundStart = (evt) => {
     props.dispatch({
@@ -58,7 +56,7 @@ function App(props) {
     });
   };
 
-  // round started
+  // if round started
   if (props.roundOver === false) {
     return (
       <div className="app">
@@ -88,7 +86,6 @@ function App(props) {
           displayQuote={showQuote}
           allAuthors={allAuthors}
           keys={keys}
-          // if the main button is clicked show the quote
           quote={showQuote ? currentQuote : "Click to see a random quote"}
           author={showQuote ? currentAuthor : "N/A"}
           letter={["A", "B", "C", "D"]}
@@ -99,22 +96,20 @@ function App(props) {
             onClick={() => {
               handleRoundStart();
               setRandomKeys();
-              let random = Math.floor(Math.random() * 1643);
+              let correctAuthorIndex = Math.floor(Math.random() * 1643);
               setShowQuote(true);
-              // setting the current quote and author
-              setCurrentQuote(quotes[random].text);
+              setCurrentQuote(quotes[correctAuthorIndex].text);
               setCurrentAuthor(
-                quotes[random].author === null
+                quotes[correctAuthorIndex].author === null
                   ? "Unknown"
-                  : quotes[random].author
+                  : quotes[correctAuthorIndex].author
               );
-              // setting the all authors array, randmomizing the authors, and setting the final authors array to pass down
               setAllAuthors(
                 [
                   quotes[Math.floor(Math.random() * 1643)].author,
                   quotes[Math.floor(Math.random() * 1643)].author,
                   quotes[Math.floor(Math.random() * 1643)].author,
-                  quotes[random].author,
+                  quotes[correctAuthorIndex].author,
                 ]
                   .sort(() => Math.random() - 0.5)
                   .map((author) => {
