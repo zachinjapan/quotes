@@ -35,10 +35,8 @@ function App(props) {
     ) {
       let newAuthor = quotes[Math.floor(Math.random() * 1643)].author;
       setIndexOfAuthorChecked((indexOfAuthorChecked += 1));
-      console.log(indexOfAuthorChecked);
       return newAuthor;
     } else {
-      console.log(indexOfAuthorChecked);
       setIndexOfAuthorChecked((indexOfAuthorChecked += 1));
       return author;
     }
@@ -108,9 +106,8 @@ function App(props) {
         />
         <div>
           <Counter />
-          <a
-            href
-            class="gameButton"
+          <div
+            className="gameButton"
             onClick={() => {
               handleRoundStart();
               setRandomKeys();
@@ -146,7 +143,7 @@ function App(props) {
             <span />
             <span />
             New Quote
-          </a>
+          </div>
         </div>
       </div>
     );
