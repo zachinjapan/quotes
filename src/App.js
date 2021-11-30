@@ -106,9 +106,8 @@ function App(props) {
         />
         <div>
           <Counter />
-          <a
-            href
-            class="gameButton"
+          <div
+            className="gameButton"
             onClick={() => {
               handleRoundStart();
               setRandomKeys();
@@ -144,7 +143,7 @@ function App(props) {
             <span />
             <span />
             New Quote
-          </a>
+          </div>
         </div>
       </div>
     );
