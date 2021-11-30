@@ -83,6 +83,7 @@ const AuthorButton = (props) => {
 			</button>
 		);
 	}
+
 };
 
 const mapStateToProps = (state) => ({
