@@ -3,6 +3,11 @@ body {
   height: 100vh;
 }
 
+/* get rid of ugly blue hyperlink text */
+a {
+  text-decoration: none;
+}
+
 .app {
   text-align: center;
   background-repeat: no-repeat;
