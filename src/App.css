@@ -1,6 +1,6 @@
 .app {
 	text-align: center;
-	background-image: url("./images/background1.webp");
+	background: #303131;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -17,12 +17,20 @@
 	font-family: fantasy;
 }
 button {
-	background-color: #4caf50;
 	border: none;
 	color: white;
 	padding: 15px 32px;
 	text-align: center;
 	width: fit-content;
+	border-radius: 20px;
+	background-color: linear-gradient(100deg, #2b2c2c, #333434);
+	box-shadow: 10px 10px 20px #222222, -10px -10px 20px #3e4040;
+}
+
+button:hover {
+	border-radius: 37px;
+	background: #303131;
+	box-shadow: inset 7px 7px 14px #222222, inset -7px -7px 14px #3e4040;
 }
 
 .gameButton {
