@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import "./App.css";
-import TextPanel from "./Components/TextPanel";
-import Title from "./Components/Title";
-import Counter from "./Components/Counter";
-import { connect } from "react-redux";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import './App.css';
+import TextPanel from './Components/TextPanel';
+import Title from './Components/Title';
+import Counter from './Components/Counter';
+import { connect } from 'react-redux';
 
 function App(props) {
-  // set up quotes araay and set displayed quote
+	// set up quotes araay and set displayed quote
+
+
 
   const [quotes, setQuotes] = useState({});
   const [currentQuote, setCurrentQuote] = useState("");
@@ -15,16 +17,18 @@ function App(props) {
   const [showQuote, setShowQuote] = useState(false);
   const [correctAuthorIndex, setCorrectAuthorIndex] = useState(0);
 
-  // array of authors to be set as the correct author and 3 random authors then randomized
-  let [allAuthors, setAllAuthors] = useState([]);
 
-  const replaceNull = (author) => {
-    if (author === null) {
-      return "Unknown";
-    } else {
-      return author;
-    }
-  };
+	// array of authors to be set as the correct author and 3 random authors then randomized
+	let [ allAuthors, setAllAuthors ] = useState([]);
+
+	const replaceNull = (author) => {
+		if (author === null) {
+			return 'Unknown';
+		} else {
+			return author;
+		}
+	};
+
 
   let [indexOfAuthorChecked, setIndexOfAuthorChecked] = useState(0);
 
@@ -49,28 +53,29 @@ function App(props) {
       setQuotes(result.data);
     };
 
-    fetchQuotes();
-  }, []);
+		fetchQuotes();
+	}, []);
 
-  // set 4 random numbers to used as the keys so that buttons rerender each time
-  let [keys, setKeys] = useState([]);
+	// set 4 random numbers to used as the keys so that buttons rerender each time
+	let [ keys, setKeys ] = useState([]);
 
-  //function to set the keys to random numbers from 1- 1000
-  const setRandomKeys = () => {
-    let randomKeys = [];
-    for (let i = 0; i < 4; i++) {
-      randomKeys.push(Math.floor(Math.random() * 1000) + 1);
-    }
-    setKeys(randomKeys);
-  };
+	//function to set the keys to random numbers from 1- 1000
+	const setRandomKeys = () => {
+		let randomKeys = [];
+		for (let i = 0; i < 4; i++) {
+			randomKeys.push(Math.floor(Math.random() * 1000) + 1);
+		}
+		setKeys(randomKeys);
+	};
 
-  // fuction to restart the round
+	// fuction to restart the round
 
-  const handleRoundStart = (evt) => {
-    props.dispatch({
-      type: "ROUND_START",
-    });
-  };
+	const handleRoundStart = (evt) => {
+		props.dispatch({
+			type: 'ROUND_START'
+		});
+	};
+
 
   // if round started (the user has clicked new quote)
   if (props.roundOver === false) {
@@ -148,13 +153,14 @@ function App(props) {
       </div>
     );
   }
+
 }
 
 const mapStateToProps = (state) => {
-  return {
-    count: state.count,
-    roundOver: state.roundOver,
-  };
+	return {
+		count: state.count,
+		roundOver: state.roundOver
+	};
 };
 
 export default connect(mapStateToProps)(App);

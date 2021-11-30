@@ -1,6 +1,9 @@
+body {
+	background: #303131;
+}
+
 .app {
 	text-align: center;
-	background: #303131;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -21,7 +24,7 @@ button {
 	color: white;
 	padding: 15px 32px;
 	text-align: center;
-	width: fit-content;
+	width: 200px;
 	border-radius: 20px;
 	background-color: linear-gradient(100deg, #2b2c2c, #333434);
 	box-shadow: 10px 10px 20px #222222, -10px -10px 20px #3e4040;
