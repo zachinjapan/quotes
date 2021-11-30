@@ -9,10 +9,14 @@ import { connect } from 'react-redux';
 function App(props) {
 	// set up quotes araay and set displayed quote
 
-	const [ quotes, setQuotes ] = useState({});
-	const [ currentQuote, setCurrentQuote ] = useState('');
-	const [ currentAuthor, setCurrentAuthor ] = useState('');
-	const [ showQuote, setShowQuote ] = useState(false);
+
+
+  const [quotes, setQuotes] = useState({});
+  const [currentQuote, setCurrentQuote] = useState("");
+  const [currentAuthor, setCurrentAuthor] = useState("");
+  const [showQuote, setShowQuote] = useState(false);
+  const [correctAuthorIndex, setCorrectAuthorIndex] = useState(0);
+
 
 	// array of authors to be set as the correct author and 3 random authors then randomized
 	let [ allAuthors, setAllAuthors ] = useState([]);
@@ -25,12 +29,29 @@ function App(props) {
 		}
 	};
 
-	// get the quotes from the api
-	useEffect(() => {
-		const fetchQuotes = async () => {
-			const result = await axios(`https://type.fit/api/quotes`);
-			setQuotes(result.data);
-		};
+
+  let [indexOfAuthorChecked, setIndexOfAuthorChecked] = useState(0);
+
+  const replaceDuplicateAuthor = (author) => {
+    if (
+      author === quotes[correctAuthorIndex].author &&
+      indexOfAuthorChecked !== 3
+    ) {
+      let newAuthor = quotes[Math.floor(Math.random() * 1643)].author;
+      setIndexOfAuthorChecked((indexOfAuthorChecked += 1));
+      return newAuthor;
+    } else {
+      setIndexOfAuthorChecked((indexOfAuthorChecked += 1));
+      return author;
+    }
+  };
+
+  // get the quotes from the api
+  useEffect(() => {
+    const fetchQuotes = async () => {
+      const result = await axios(`https://type.fit/api/quotes`);
+      setQuotes(result.data);
+    };
 
 		fetchQuotes();
 	}, []);
@@ -55,76 +76,84 @@ function App(props) {
 		});
 	};
 
-	// if round started
-	if (props.roundOver === false) {
-		return (
-			<div className="app">
-				<Title />
-				<TextPanel
-					displayQuote={showQuote}
-					allAuthors={allAuthors}
-					keys={keys}
-					// if the main button is clicked show the quote
-					quote={showQuote ? currentQuote : 'Click to see a random quote'}
-					author={showQuote ? currentAuthor : 'N/A'}
-					letter={[ 'A', 'B', 'C', 'D' ]}
-				/>
-				<div>
-					<Counter />
-				</div>
-			</div>
-		);
-	} else {
-		return (
-			<div className="app">
-				<Title />
-				<TextPanel
-					displayQuote={showQuote}
-					allAuthors={allAuthors}
-					keys={keys}
-					quote={showQuote ? currentQuote : 'Click to see a random quote'}
-					author={showQuote ? currentAuthor : 'N/A'}
-					letter={[ 'A', 'B', 'C', 'D' ]}
-				/>
-				<div>
-					<Counter />
-					<div
-						className="gameButton"
-						onClick={() => {
-							handleRoundStart();
-							setRandomKeys();
-							let correctAuthorIndex = Math.floor(Math.random() * 1643);
-							setShowQuote(true);
-							setCurrentQuote(quotes[correctAuthorIndex].text);
-							setCurrentAuthor(
-								quotes[correctAuthorIndex].author === null
-									? 'Unknown'
-									: quotes[correctAuthorIndex].author
-							);
-							setAllAuthors(
-								[
-									quotes[Math.floor(Math.random() * 1643)].author,
-									quotes[Math.floor(Math.random() * 1643)].author,
-									quotes[Math.floor(Math.random() * 1643)].author,
-									quotes[correctAuthorIndex].author
-								]
-									.sort(() => Math.random() - 0.5)
-									.map((author) => {
-										return replaceNull(author);
-									})
-							);
-						}}
-					>
-						<span />
-						<span />
-						<span />
-						<span />
-						New Quote
-					</div>
-				</div>
-			</div>
-		);
-	}
+
+  // if round started (the user has clicked new quote)
+  if (props.roundOver === false) {
+    return (
+      <div className="app">
+        <Title />
+        <TextPanel
+          displayQuote={showQuote}
+          allAuthors={allAuthors}
+          keys={keys}
+          // if the main button is clicked show the quote
+          quote={showQuote ? currentQuote : "Click to see a random quote"}
+          author={showQuote ? currentAuthor : "N/A"}
+          letter={["A", "B", "C", "D"]}
+        />
+        <div>
+          <Counter />
+        </div>
+      </div>
+    );
+    // what to show  if the round is over(the user has clicked a Author Button)
+  } else {
+    return (
+      <div className="app">
+        <Title />
+        <TextPanel
+          displayQuote={showQuote}
+          allAuthors={allAuthors}
+          keys={keys}
+          quote={showQuote ? currentQuote : "Click to see a random quote"}
+          author={showQuote ? currentAuthor : "N/A"}
+          letter={["A", "B", "C", "D"]}
+        />
+        <div>
+          <Counter />
+          <div
+            className="gameButton"
+            onClick={() => {
+              handleRoundStart();
+              setCorrectAuthorIndex(Math.floor(Math.random() * 1643));
+              setShowQuote(true);
+              setCurrentQuote(quotes[correctAuthorIndex].text);
+              setCurrentAuthor(
+                quotes[correctAuthorIndex].author === null
+                  ? "Unknown"
+                  : quotes[correctAuthorIndex].author
+              );
+              setAllAuthors(
+                [
+                  quotes[Math.floor(Math.random() * 1643)].author,
+                  quotes[Math.floor(Math.random() * 1643)].author,
+                  quotes[Math.floor(Math.random() * 1643)].author,
+                  quotes[correctAuthorIndex].author,
+                ]
+                  .map((author) => {
+                    return replaceDuplicateAuthor(author);
+                  })
+                  .sort(() => Math.random() - 0.5)
+                  .map((author) => {
+                    return replaceNull(author);
+                  })
+              );
+
+              setIndexOfAuthorChecked(0);
+              setRandomKeys();
+            }}
+          >
+            <span />
+            <span />
+            <span />
+            <span />
+            New Quote
+          </div>
+        </div>
+      </div>
+    );
+  }
+
 }
 
 const mapStateToProps = (state) => {
