@@ -14,10 +14,14 @@ const RandomQuote = (props) => {
     <div className="random-quote">
       <p className="random-quote-text">"{props.quote}"</p>
       {/* just for testing */}
-      <h1> {props.author}</h1>
-      <a class="twitter-share-button" href={twitterUrl}>
-        <FontAwesomeIcon icon={faTwitterSquare} size="2x" />
-      </a>
+      {/* <h1> {props.author}</h1> */}
+      <span>
+        {" "}
+        share on twitter
+        <a class="twitter-share-button" href={twitterUrl}>
+          <FontAwesomeIcon icon={faTwitterSquare} size="2x" />
+        </a>
+      </span>
     </div>
   );
 };
