@@ -57,12 +57,14 @@ const AuthorButton = (props) => {
     }
   }
 
-  // what to show if round over is true
+  // what to show if round over is true aka user has clicked a button
+
   if (props.roundOver) {
     return (
       <button
         style={{
           backgroundColor:
+            // show all of the buttons true or false colors and disable
             props.author === props.realAuthor ? "green" : "#ff0000",
           margin: "20px",
         }}
@@ -72,7 +74,7 @@ const AuthorButton = (props) => {
       </button>
     );
 
-    // what to show if round over is false
+    // what to show if round over is false aka the user has not clicked a button yet
   } else {
     return (
       <button
