@@ -13,6 +13,7 @@ function App(props) {
   const [currentQuote, setCurrentQuote] = useState("");
   const [currentAuthor, setCurrentAuthor] = useState("");
   const [showQuote, setShowQuote] = useState(false);
+  const [correctAuthorIndex, setCorrectAuthorIndex] = useState(0);
 
   // array of authors to be set as the correct author and 3 random authors then randomized
   let [allAuthors, setAllAuthors] = useState([]);
@@ -21,6 +22,24 @@ function App(props) {
     if (author === null) {
       return "Unknown";
     } else {
+      return author;
+    }
+  };
+
+  let [indexOfAuthorChecked, setIndexOfAuthorChecked] = useState(0);
+
+  const replaceDuplicateAuthor = (author) => {
+    if (
+      author === quotes[correctAuthorIndex].author &&
+      indexOfAuthorChecked !== 3
+    ) {
+      let newAuthor = quotes[Math.floor(Math.random() * 1643)].author;
+      setIndexOfAuthorChecked((indexOfAuthorChecked += 1));
+      console.log(indexOfAuthorChecked);
+      return newAuthor;
+    } else {
+      console.log(indexOfAuthorChecked);
+      setIndexOfAuthorChecked((indexOfAuthorChecked += 1));
       return author;
     }
   };
@@ -55,7 +74,7 @@ function App(props) {
     });
   };
 
-  // if round started
+  // if round started (the user has clicked new quote)
   if (props.roundOver === false) {
     return (
       <div className="app">
@@ -74,6 +93,7 @@ function App(props) {
         </div>
       </div>
     );
+    // what to show  if the round is over(the user has clicked a Author Button)
   } else {
     return (
       <div className="app">
@@ -94,7 +114,7 @@ function App(props) {
             onClick={() => {
               handleRoundStart();
               setRandomKeys();
-              let correctAuthorIndex = Math.floor(Math.random() * 1643);
+              setCorrectAuthorIndex(Math.floor(Math.random() * 1643));
               setShowQuote(true);
               setCurrentQuote(quotes[correctAuthorIndex].text);
               setCurrentAuthor(
@@ -109,11 +129,16 @@ function App(props) {
                   quotes[Math.floor(Math.random() * 1643)].author,
                   quotes[correctAuthorIndex].author,
                 ]
+                  .map((author) => {
+                    return replaceDuplicateAuthor(author);
+                  })
                   .sort(() => Math.random() - 0.5)
                   .map((author) => {
                     return replaceNull(author);
                   })
               );
+
+              setIndexOfAuthorChecked(0);
             }}
           >
             <span />
