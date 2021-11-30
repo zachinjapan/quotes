@@ -1,6 +1,7 @@
 export default function reducerFunc(
   state = {
     count: 0,
+    roundOver: false,
   },
   action
 ) {
@@ -14,6 +15,16 @@ export default function reducerFunc(
       return {
         ...state,
         count: 0,
+      };
+    case "ROUND_OVER":
+      return {
+        ...state,
+        roundOver: true,
+      };
+    case "ROUND_START":
+      return {
+        ...state,
+        roundOver: false,
       };
     default:
       return state;

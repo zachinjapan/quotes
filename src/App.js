@@ -49,55 +49,88 @@ function App(props) {
     setKeys(randomKeys);
   };
 
-  return (
-    <div className="app">
-      <Title />
-      <TextPanel
-        displayQuote={showQuote}
-        allAuthors={allAuthors}
-        keys={keys}
-        // if the main button is clicked show the quote
-        quote={showQuote ? currentQuote : "Click to see a random quote"}
-        author={showQuote ? currentAuthor : "N/A"}
-        letter={["A", "B", "C", "D"]}
-      />
-      <div>
-        <Counter />
-        <button
-          onClick={() => {
-            setRandomKeys();
-            let random = Math.floor(Math.random() * 1643);
-            setShowQuote(true);
-            // setting the current quote and author
-            setCurrentQuote(quotes[random].text);
-            setCurrentAuthor(
-              quotes[random].author === null ? "Unknown" : quotes[random].author
-            );
-            // setting the all authors array, randmomizing the authors, and setting the final authors array to pass down
-            setAllAuthors(
-              [
-                quotes[Math.floor(Math.random() * 1643)].author,
-                quotes[Math.floor(Math.random() * 1643)].author,
-                quotes[Math.floor(Math.random() * 1643)].author,
-                quotes[random].author,
-              ]
-                .sort(() => Math.random() - 0.5)
-                .map((author) => {
-                  return replaceNull(author);
-                })
-            );
-          }}
-        >
-          New Quote
-        </button>
+  // fuctino to restart the round
+
+  const handleRoundStart = (evt) => {
+    props.dispatch({
+      type: "ROUND_START",
+    });
+  };
+
+  // round started
+  if (props.roundOver === false) {
+    return (
+      <div className="app">
+        <Title />
+        <TextPanel
+          displayQuote={showQuote}
+          allAuthors={allAuthors}
+          keys={keys}
+          // if the main button is clicked show the quote
+          quote={showQuote ? currentQuote : "Click to see a random quote"}
+          author={showQuote ? currentAuthor : "N/A"}
+          letter={["A", "B", "C", "D"]}
+        />
+        <div>
+          <Counter />
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="app">
+        <Title />
+        <TextPanel
+          displayQuote={showQuote}
+          allAuthors={allAuthors}
+          keys={keys}
+          // if the main button is clicked show the quote
+          quote={showQuote ? currentQuote : "Click to see a random quote"}
+          author={showQuote ? currentAuthor : "N/A"}
+          letter={["A", "B", "C", "D"]}
+        />
+        <div>
+          <Counter />
+          <button
+            onClick={() => {
+              handleRoundStart();
+              setRandomKeys();
+              let random = Math.floor(Math.random() * 1643);
+              setShowQuote(true);
+              // setting the current quote and author
+              setCurrentQuote(quotes[random].text);
+              setCurrentAuthor(
+                quotes[random].author === null
+                  ? "Unknown"
+                  : quotes[random].author
+              );
+              // setting the all authors array, randmomizing the authors, and setting the final authors array to pass down
+              setAllAuthors(
+                [
+                  quotes[Math.floor(Math.random() * 1643)].author,
+                  quotes[Math.floor(Math.random() * 1643)].author,
+                  quotes[Math.floor(Math.random() * 1643)].author,
+                  quotes[random].author,
+                ]
+                  .sort(() => Math.random() - 0.5)
+                  .map((author) => {
+                    return replaceNull(author);
+                  })
+              );
+            }}
+          >
+            New Quote
+          </button>
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
     count: state.count,
+    roundOver: state.roundOver,
   };
 };
 
