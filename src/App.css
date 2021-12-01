@@ -1,149 +1,142 @@
 body {
-  background: #303131;
-  height: 100vh;
+	background: #303131;
+	height: 100vh;
+	font-family: 'Alegreya';
 }
 
 /* get rid of ugly blue hyperlink text */
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .app {
-  text-align: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  margin: auto;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	margin: auto;
 }
 
-.title {
-  font-size: 40px;
-  color: rgb(38, 38, 38);
-  font-weight: bold;
-  text-align: center;
-  font-family: fantasy;
-}
 button {
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  width: 200px;
-  border-radius: 20px;
-  background-color: linear-gradient(100deg, #2b2c2c, #333434);
-  box-shadow: 10px 10px 20px #222222, -10px -10px 20px #3e4040;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	width: 200px;
+	border-radius: 20px;
+	background-color: linear-gradient(100deg, #2b2c2c, #333434);
+	box-shadow: 10px 10px 20px #222222, -10px -10px 20px #3e4040;
 }
 
 button:hover {
-  border-radius: 37px;
-  background: #303131;
-  box-shadow: inset 7px 7px 14px #222222, inset -7px -7px 14px #3e4040;
+	border-radius: 37px;
+	background: #303131;
+	box-shadow: inset 7px 7px 14px #222222, inset -7px -7px 14px #3e4040;
 }
 
 .gameButton {
-  position: absolute;
-  display: inline-block;
-  padding: 25px 30px;
-  margin: 50px 0;
-  color: #03e9f4;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: 0.5s;
-  letter-spacing: 4px;
-  overflow: hidden;
-  right: 50%;
-  transform: translate(50%, -50%);
-  background: linear-gradient(145deg, #2b2c2c, #333434);
-  box-shadow: 20px 20px 37px #292a2a, -20px -20px 37px #373838;
+	position: absolute;
+	display: inline-block;
+	padding: 25px 30px;
+	margin: 50px 0;
+	color: #03e9f4;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.5s;
+	letter-spacing: 4px;
+	overflow: hidden;
+	right: 50%;
+	transform: translate(50%, -50%);
+	background: linear-gradient(145deg, #2b2c2c, #333434);
+	box-shadow: 20px 20px 37px #292a2a, -20px -20px 37px #373838;
 }
 
 .gameButton:hover {
-  background: #03e9f4;
-  color: #050801;
-  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
-    0 0 200px #03e9f4;
-  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+	background: #03e9f4;
+	color: #050801;
+	box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px #03e9f4;
+	-webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
 
 .gameButton:nth-child(1) {
-  filter: hue-rotate(270deg);
+	filter: hue-rotate(270deg);
 }
 
 .gameButton span {
-  position: absolute;
-  display: block;
+	position: absolute;
+	display: block;
 }
 .gameButton span:nth-child(1) {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #03e9f4);
-  animation: animate1 1s linear infinite;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, #03e9f4);
+	animation: animate1 1s linear infinite;
 }
 @keyframes animate1 {
-  0% {
-    left: -100%;
-  }
-  50%,
-  100% {
-    left: 100%;
-  }
+	0% {
+		left: -100%;
+	}
+	50%,
+	100% {
+		left: 100%;
+	}
 }
 
 .gameButton span:nth-child(2) {
-  top: -100%;
-  right: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, #03e9f4);
-  animation: animate2 1s linear infinite;
-  animation-delay: 0.25s;
+	top: -100%;
+	right: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(180deg, transparent, #03e9f4);
+	animation: animate2 1s linear infinite;
+	animation-delay: 0.25s;
 }
 @keyframes animate2 {
-  0% {
-    top: -100%;
-  }
-  50%,
-  100% {
-    top: 100%;
-  }
+	0% {
+		top: -100%;
+	}
+	50%,
+	100% {
+		top: 100%;
+	}
 }
 .gameButton span:nth-child(3) {
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, transparent, #03e9f4);
-  animation: animate3 1s linear infinite;
-  animation-delay: 0.5s;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(270deg, transparent, #03e9f4);
+	animation: animate3 1s linear infinite;
+	animation-delay: 0.5s;
 }
 @keyframes animate3 {
-  0% {
-    right: -100%;
-  }
-  50%,
-  100% {
-    right: 100%;
-  }
+	0% {
+		right: -100%;
+	}
+	50%,
+	100% {
+		right: 100%;
+	}
 }
 
 .gameButton span:nth-child(4) {
-  bottom: -100%;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(360deg, transparent, #03e9f4);
-  animation: animate4 1s linear infinite;
-  animation-delay: 0.75s;
+	bottom: -100%;
+	left: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(360deg, transparent, #03e9f4);
+	animation: animate4 1s linear infinite;
+	animation-delay: 0.75s;
 }
 @keyframes animate4 {
-  0% {
-    bottom: -100%;
-  }
-  50%,
-  100% {
-    bottom: 100%;
-  }
+	0% {
+		bottom: -100%;
+	}
+	50%,
+	100% {
+		bottom: 100%;
+	}
 }

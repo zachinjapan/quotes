@@ -1,17 +1,22 @@
 .random-quote {
 	width: 90%;
 	height: 90%;
-	font-family: "Roboto", sans-serif;
-	font-size: 1em;
-	font-weight: 300;
-	color: rgb(89, 89, 89);
+	font-size: 1.2em;
+	font-weight: 500;
+	color: #adecff;
 	text-align: center;
-	border-radius: 50px;
-	background: #adecff;
-	box-shadow: 2px 2px 4px #a8e5f7, -2px -2px 4px #b2f3ff;
 }
 
 .random-quote-text {
-	font-family: cursive;
 	font-size: 1.5em;
+}
+
+.twitter-share-button {
+	color: #4acdf5;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.twitter-share-button span {
 }
