@@ -79,7 +79,7 @@ const AuthorButton = (props) => {
       </button>
     );
 
-    // what to show if  the user has clicked an author button
+    // what to show if  the user has clicked the button
   } else {
     return (
       <button
