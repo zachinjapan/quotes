@@ -1,1 +1,4 @@
-
+.author-button {
+  /* this stops that anoying thing where you try to click on a button and you highlight the text instead */
+  user-select: none;
+}

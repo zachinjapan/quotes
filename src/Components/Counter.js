@@ -6,6 +6,7 @@ const Counter = (props) => {
       <h1
         style={{
           color: "white",
+          userSelect: "none",
         }}
       >
         Correct in a row: {props.count}
