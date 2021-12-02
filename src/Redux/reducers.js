@@ -2,7 +2,7 @@ export default function reducerFunc(
   state = {
     count: 0,
     roundOver: true,
-    quoteType: "movie",
+    quoteType: "famous",
   },
   action
 ) {
