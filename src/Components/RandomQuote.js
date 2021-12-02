@@ -40,12 +40,12 @@ const RandomQuote = (props) => {
         src="https://platform.twitter.com/widgets.js"
         charset="utf-8"
       />
-      <button className="TEST" onClick={handleQuoteTypeToFamous}>
+      {/* <button className="TEST" onClick={handleQuoteTypeToFamous}>
         MAKES THE QUOTES FAMOUS
       </button>
       <button className="TEST" onClick={handleQuoteTypeToMovie}>
         MAKES THE QUOTES MOVIE BASED
-      </button>
+      </button> */}
     </div>
   );
 };
