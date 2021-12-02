@@ -20,14 +20,19 @@ function App(props) {
   const [currentQuote, setCurrentQuote] = useState("");
   const [currentAuthor, setCurrentAuthor] = useState("");
   const [correctAuthorIndex, setCorrectAuthorIndex] = useState(
-    Math.floor(Math.random() * 100)
+    Math.floor(Math.random() * 1630)
   );
   // array of authors to be set as the correct author and 3 random authors then randomized
   let [allAuthors, setAllAuthors] = useState([]);
   const [gameStarted, setGameStarted] = useState(false);
   let [indexOfAuthorChecked, setIndexOfAuthorChecked] = useState(0);
   // set 4 random numbers to used as the keys so that buttons rerender each time
-  let [keys, setKeys] = useState([]);
+  let [keys, setKeys] = useState([
+    Math.floor(Math.random() * 1630),
+    Math.floor(Math.random() * 1630),
+    Math.floor(Math.random() * 1630),
+    Math.floor(Math.random() * 1630),
+  ]);
 
   // --------------------------------------------------------------------------------
   // helper functions
