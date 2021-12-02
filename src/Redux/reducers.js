@@ -27,16 +27,6 @@ export default function reducerFunc(
         ...state,
         roundOver: false,
       };
-    case "CHANGE_QUOTE_TYPE_TO_FAMOUS":
-      return {
-        ...state,
-        quoteType: "famous",
-      };
-    case "CHANGE_QUOTE_TYPE_TO_MOVIE":
-      return {
-        ...state,
-        quoteType: "movie",
-      };
     default:
       return state;
   }
