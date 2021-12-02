@@ -8,8 +8,10 @@ import { connect } from "react-redux";
 
 function App(props) {
   // set up quotes araay and set displayed quote
-
   const [quotes, setQuotes] = useState({});
+  const [allMovieQuotes, setAllMovieQuotes] = useState({});
+  const [allFamousQuotes, setAllFamousQuotes] = useState({});
+  // these are pulled from the above states
   const [currentQuote, setCurrentQuote] = useState("");
   const [currentAuthor, setCurrentAuthor] = useState("");
   const [showQuote, setShowQuote] = useState(false);
@@ -42,15 +44,31 @@ function App(props) {
     }
   };
 
-  // get the quotes from the api
+  // get the quotes from the famous quotes api
   useEffect(() => {
     const fetchQuotes = async () => {
       const result = await axios(`https://type.fit/api/quotes`);
+      setAllFamousQuotes(result.data);
       setQuotes(result.data);
     };
 
+    const fetchMovieQuotes = async () => {
+      const movieQuotes = require("movie-quotes");
+      let data = movieQuotes.all;
+      // take that array and make it into an object with the quote and the author (like the famous quotes api)
+      data = data.map((quote) => {
+        let splitArr = quote.split('" ');
+        return { text: splitArr[0], author: splitArr[1] };
+      });
+      setAllMovieQuotes(data);
+    };
+
+    fetchMovieQuotes();
     fetchQuotes();
   }, []);
+
+  // get quotes from the movie quotes api
+  useEffect(() => {}, []);
 
   // set 4 random numbers to used as the keys so that buttons rerender each time
   let [keys, setKeys] = useState([]);
@@ -72,6 +90,20 @@ function App(props) {
     });
   };
 
+  // function to test which quote api data to use
+
+  const checkQuoteType = (reduxVariable) => {
+    if (reduxVariable === "famous") {
+      console.log("famous");
+      setQuotes(allFamousQuotes);
+      return;
+    } else if (reduxVariable === "movie") {
+      console.log("movie");
+      setQuotes(allMovieQuotes);
+      return;
+    }
+  };
+
   // if round started (the user has clicked new quote)
   if (props.roundOver === false) {
     return (
@@ -91,6 +123,7 @@ function App(props) {
         </div>
       </div>
     );
+
     // what to show  if the round is over(the user has clicked ag Author Button)
   } else {
     return (
@@ -110,9 +143,18 @@ function App(props) {
             className="gameButton"
             onClick={() => {
               handleRoundStart();
-              setCorrectAuthorIndex(Math.floor(Math.random() * 1643));
+              setCorrectAuthorIndex(
+                Math.floor(
+                  Math.random() * (props.quoteType === "famous" ? 1643 : 100)
+                )
+              );
+              console.log(correctAuthorIndex);
+              console.log(props.quoteType);
+              console.log("all famous quotes", allFamousQuotes);
+              console.log("all movie quotes", allMovieQuotes);
               setShowQuote(true);
               setCurrentQuote(quotes[correctAuthorIndex].text);
+              console.log(quotes[correctAuthorIndex].text);
               setCurrentAuthor(
                 quotes[correctAuthorIndex].author === null
                   ? "Unknown"
@@ -120,9 +162,24 @@ function App(props) {
               );
               setAllAuthors(
                 [
-                  quotes[Math.floor(Math.random() * 1643)].author,
-                  quotes[Math.floor(Math.random() * 1643)].author,
-                  quotes[Math.floor(Math.random() * 1643)].author,
+                  quotes[
+                    Math.floor(
+                      Math.random() *
+                        (props.quoteType === "famous" ? 1643 : 100)
+                    )
+                  ].author,
+                  quotes[
+                    Math.floor(
+                      Math.random() *
+                        (props.quoteType === "famous" ? 1643 : 100)
+                    )
+                  ].author,
+                  quotes[
+                    Math.floor(
+                      Math.random() *
+                        (props.quoteType === "famous" ? 1643 : 100)
+                    )
+                  ].author,
                   quotes[correctAuthorIndex].author,
                 ]
                   .map((author) => {
@@ -142,7 +199,7 @@ function App(props) {
             <span />
             <span />
             <span />
-            New Quote
+            New
           </div>
         </div>
       </div>
@@ -154,6 +211,7 @@ const mapStateToProps = (state) => {
   return {
     count: state.count,
     roundOver: state.roundOver,
+    quoteType: state.quoteType,
   };
 };
 
