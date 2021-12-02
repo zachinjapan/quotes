@@ -2,6 +2,16 @@ import { useState } from "react";
 import { connect } from "react-redux";
 
 const AuthorButton = (props) => {
+  // -----------------------------------------------------------------------------
+  // variables
+  // -----------------------------------------------------------------------------
+
+  const [buttonColor, setButtonColor] = useState("#303131");
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+
+  // -----------------------------------------------------------------------------
+  // redux functions
+  // -----------------------------------------------------------------------------
   const handleInc = (evt) => {
     props.dispatch({
       type: "INCREMENT",
@@ -19,10 +29,16 @@ const AuthorButton = (props) => {
     });
   };
 
+  // -----------------------------------------------------------------------------
+  // event handlers
+  // -----------------------------------------------------------------------------
+
   function clickHandler() {
     return checkIfButtonValueIsAuthor(props.author, props.realAuthor);
   }
-
+  // -----------------------------------------------------------------------------
+  // helper functions
+  // -----------------------------------------------------------------------------
   function changeButtonColor(trueOrFalse) {
     if (trueOrFalse) {
       setButtonColor("#3AC357");
@@ -31,24 +47,15 @@ const AuthorButton = (props) => {
     }
   }
 
-  //   button color value
-  const [buttonColor, setButtonColor] = useState("#303131");
-
-  //  button disabled value
-
-  const [buttonDisabled, setButtonDisabled] = useState(false);
-
   // check if button clicked is correct
   function checkIfButtonValueIsAuthor(testAuthor, realAuthor) {
     if (testAuthor === realAuthor) {
-      console.log("correct");
       changeButtonColor(true);
       setButtonDisabled(true);
       handleInc();
       handleRoundOver();
       return true;
     } else {
-      console.log("incorrect");
       changeButtonColor(false);
       setButtonDisabled(true);
       handleReset();
@@ -57,7 +64,7 @@ const AuthorButton = (props) => {
     }
   }
 
-  // what to show if round over is true
+  // what to show if the user has not clicked the button yet
   if (props.roundOver) {
     return (
       <button
@@ -72,7 +79,7 @@ const AuthorButton = (props) => {
       </button>
     );
 
-    // what to show if round over is false
+    // what to show if  the user has clicked an author button
   } else {
     return (
       <button
