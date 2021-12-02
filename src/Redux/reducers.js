@@ -2,6 +2,7 @@ export default function reducerFunc(
   state = {
     count: 0,
     roundOver: true,
+    quoteType: "movie",
   },
   action
 ) {
@@ -25,6 +26,16 @@ export default function reducerFunc(
       return {
         ...state,
         roundOver: false,
+      };
+    case "CHANGE_QUOTE_TYPE_TO_FAMOUS":
+      return {
+        ...state,
+        quoteType: "famous",
+      };
+    case "CHANGE_QUOTE_TYPE_TO_MOVIE":
+      return {
+        ...state,
+        quoteType: "movie",
       };
     default:
       return state;
