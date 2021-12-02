@@ -41,10 +41,10 @@ const RandomQuote = (props) => {
         charset="utf-8"
       />
       <button className="TEST" onClick={handleQuoteTypeToFamous}>
-        ///MAKES THE QUOTES FAMOUS
+        MAKES THE QUOTES FAMOUS
       </button>
       <button className="TEST" onClick={handleQuoteTypeToMovie}>
-        ////MAKES THE QUOTES MOVIE BASED
+        MAKES THE QUOTES MOVIE BASED
       </button>
     </div>
   );
