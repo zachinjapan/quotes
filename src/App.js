@@ -35,7 +35,12 @@ function App(props) {
       author === quotes[correctAuthorIndex].author &&
       indexOfAuthorChecked !== 3
     ) {
-      let newAuthor = quotes[Math.floor(Math.random() * 1643)].author;
+      let newAuthor =
+        quotes[
+          Math.floor(
+            Math.random() * (props.quoteType === "famous" ? 1643 : 100)
+          )
+        ].author;
       setIndexOfAuthorChecked((indexOfAuthorChecked += 1));
       return newAuthor;
     } else {
@@ -92,13 +97,17 @@ function App(props) {
 
   // function to test which quote api data to use
 
-  const checkQuoteType = (reduxVariable) => {
-    if (reduxVariable === "famous") {
-      console.log("famous");
+  const handleQuoteTypeCheck = () => {
+    checkQuoteType();
+  };
+
+  const checkQuoteType = () => {
+    if (props.quoteType === "famous") {
+      console.log(" found famous and setting current quote");
       setQuotes(allFamousQuotes);
       return;
-    } else if (reduxVariable === "movie") {
-      console.log("movie");
+    } else if (props.quoteType === "movie") {
+      console.log("its movie");
       setQuotes(allMovieQuotes);
       return;
     }
@@ -142,6 +151,7 @@ function App(props) {
           <div
             className="gameButton"
             onClick={() => {
+              handleQuoteTypeCheck();
               handleRoundStart();
               setCorrectAuthorIndex(
                 Math.floor(
@@ -160,6 +170,7 @@ function App(props) {
                   ? "Unknown"
                   : quotes[correctAuthorIndex].author
               );
+              console.log("fine after set current author");
               setAllAuthors(
                 [
                   quotes[
@@ -190,6 +201,7 @@ function App(props) {
                     return replaceNull(author);
                   })
               );
+              console.log("finisehd setting all authors");
 
               setIndexOfAuthorChecked(0);
               setRandomKeys();
