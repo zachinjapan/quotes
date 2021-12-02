@@ -15,7 +15,9 @@ function App(props) {
   const [currentQuote, setCurrentQuote] = useState("");
   const [currentAuthor, setCurrentAuthor] = useState("");
   const [showQuote, setShowQuote] = useState(false);
-  const [correctAuthorIndex, setCorrectAuthorIndex] = useState(0);
+  const [correctAuthorIndex, setCorrectAuthorIndex] = useState(
+    Math.floor(Math.random() * 100)
+  );
 
   // array of authors to be set as the correct author and 3 random authors then randomized
   let [allAuthors, setAllAuthors] = useState([]);
