@@ -61,10 +61,6 @@ button:hover {
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
 
-.gameButton:nth-child(1) {
-  filter: hue-rotate(270deg);
-}
-
 .gameButton span {
   position: absolute;
   display: block;

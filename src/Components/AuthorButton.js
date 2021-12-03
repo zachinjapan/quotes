@@ -12,16 +12,6 @@ const AuthorButton = (props) => {
   // -----------------------------------------------------------------------------
   // redux functions
   // -----------------------------------------------------------------------------
-  const handleInc = (evt) => {
-    props.dispatch({
-      type: "INCREMENT",
-    });
-  };
-  const handleReset = (evt) => {
-    props.dispatch({
-      type: "RESET",
-    });
-  };
 
   const handleRoundOver = (evt) => {
     props.dispatch({
@@ -52,13 +42,11 @@ const AuthorButton = (props) => {
     if (testAuthor === realAuthor) {
       changeButtonColor(true);
       setButtonDisabled(true);
-      handleInc();
       handleRoundOver();
       return true;
     } else {
       changeButtonColor(false);
       setButtonDisabled(true);
-      handleReset();
       handleRoundOver();
       return false;
     }
@@ -94,7 +82,6 @@ const AuthorButton = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  count: state.count,
   roundOver: state.roundOver,
 });
 

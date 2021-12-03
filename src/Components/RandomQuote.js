@@ -31,7 +31,6 @@ const RandomQuote = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    count: state.count,
     roundOver: state.roundOver,
     quoteType: state.quoteType,
   };
