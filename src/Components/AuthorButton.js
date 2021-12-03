@@ -14,11 +14,12 @@ const AuthorButton = (props) => {
     toast("Nice Job! 👍", {
       position: "bottom-left",
       autoClose: 2000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
+      theme: "dark",
     });
 
   // -----------------------------------------------------------------------------
@@ -70,8 +71,8 @@ const AuthorButton = (props) => {
     <div style={{ display: "inline-block" }}>
       <ToastContainer
         position="bottom-left"
-        autoClose={2000}
-        hideProgressBar={false}
+        autoClose={3000}
+        hideProgressBar
         newestOnTop={false}
         closeOnClick
         rtl={false}
