@@ -10,6 +10,7 @@ const AuthorButton = (props) => {
 
   const [buttonColor, setButtonColor] = useState("#303131");
   const [buttonDisabled, setButtonDisabled] = useState(false);
+
   const notify = () =>
     toast("Nice Job! 👍", {
       position: "bottom-left",
@@ -55,8 +56,8 @@ const AuthorButton = (props) => {
     if (testAuthor === realAuthor) {
       changeButtonColor(true);
       setButtonDisabled(true);
-      handleRoundOver();
       notify();
+      handleRoundOver();
       return true;
     } else {
       changeButtonColor(false);
@@ -69,17 +70,6 @@ const AuthorButton = (props) => {
 
   return (
     <div style={{ display: "inline-block" }}>
-      <ToastContainer
-        position="bottom-left"
-        autoClose={3000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
       {props.roundOver ? (
         <button
           className="author-button"
