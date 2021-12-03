@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { connect } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AuthorButton = (props) => {
   // -----------------------------------------------------------------------------
@@ -8,6 +10,16 @@ const AuthorButton = (props) => {
 
   const [buttonColor, setButtonColor] = useState("#303131");
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const notify = () =>
+    toast("Nice Job! 👍", {
+      position: "bottom-left",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
   // -----------------------------------------------------------------------------
   // redux functions
@@ -43,42 +55,54 @@ const AuthorButton = (props) => {
       changeButtonColor(true);
       setButtonDisabled(true);
       handleRoundOver();
+      notify();
       return true;
     } else {
       changeButtonColor(false);
       setButtonDisabled(true);
       handleRoundOver();
+
       return false;
     }
   }
 
-  // what to show if the user has not clicked the button yet
-  if (props.roundOver) {
-    return (
-      <button
-        style={{
-          backgroundColor:
-            props.author === props.realAuthor ? "#3AC357" : "#EE3116",
-          margin: "20px",
-        }}
-        disabled={true}
-      >
-        {`${props.letter}: ${props.author}`}
-      </button>
-    );
-
-    // what to show if  the user has clicked the button
-  } else {
-    return (
-      <button
-        style={{ backgroundColor: buttonColor, margin: "20px" }}
-        disabled={buttonDisabled}
-        onClick={clickHandler}
-      >
-        {`${props.letter}: ${props.author}`}
-      </button>
-    );
-  }
+  return (
+    <div style={{ display: "inline-block" }}>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      {props.roundOver ? (
+        <button
+          className="author-button"
+          style={{
+            backgroundColor:
+              props.author === props.realAuthor ? "#3AC357" : "#EE3116",
+            margin: "20px",
+          }}
+          disabled={true}
+        >
+          {`${props.letter}: ${props.author}`}
+        </button>
+      ) : (
+        <button
+          className="author-button"
+          style={{ backgroundColor: buttonColor, margin: "20px" }}
+          disabled={buttonDisabled}
+          onClick={clickHandler}
+        >
+          {`${props.letter}: ${props.author}`}
+        </button>
+      )}
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => ({
