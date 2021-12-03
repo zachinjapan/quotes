@@ -13,7 +13,7 @@ const AuthorButton = (props) => {
 
   const notify = () =>
     toast("Nice Job! 👍", {
-      position: "bottom-left",
+      position: "top-left",
       autoClose: 2000,
       hideProgressBar: true,
       closeOnClick: true,
