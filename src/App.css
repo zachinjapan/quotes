@@ -23,7 +23,7 @@ button {
   color: white;
   padding: 15px 32px;
   text-align: center;
-  width: 200px;
+  /* width: 200px; */
   border-radius: 20px;
   background-color: linear-gradient(100deg, #2b2c2c, #333434);
   box-shadow: 10px 10px 20px #222222, -10px -10px 20px #3e4040;
@@ -59,10 +59,6 @@ button:hover {
   box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
     0 0 200px #03e9f4;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
-}
-
-.gameButton:nth-child(1) {
-  filter: hue-rotate(270deg);
 }
 
 .gameButton span {

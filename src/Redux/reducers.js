@@ -1,22 +1,10 @@
 export default function reducerFunc(
   state = {
-    count: 0,
     roundOver: true,
-    quoteType: "famous",
   },
   action
 ) {
   switch (action.type) {
-    case "INCREMENT":
-      return {
-        ...state,
-        count: state.count + 1,
-      };
-    case "RESET":
-      return {
-        ...state,
-        count: 0,
-      };
     case "ROUND_OVER":
       return {
         ...state,

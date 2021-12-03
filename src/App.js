@@ -3,7 +3,6 @@ import axios from "axios";
 import "./App.css";
 import TextPanel from "./Components/TextPanel";
 import Title from "./Components/Title";
-import Counter from "./Components/Counter";
 import { connect } from "react-redux";
 
 function App(props) {
@@ -13,7 +12,6 @@ function App(props) {
   //  global state
   //
   // round over (true/false)
-  // count (number)
 
   // local
   const [quotes, setQuotes] = useState({});
@@ -112,9 +110,6 @@ function App(props) {
           author={gameStarted ? currentAuthor : "N/A"}
           letter={["A", "B", "C", "D"]}
         />
-        <div>
-          <Counter />
-        </div>
         <div className="spacer"></div>
       </div>
     );
@@ -133,7 +128,6 @@ function App(props) {
           letter={["A", "B", "C", "D"]}
         />
         <div>
-          <Counter />
           <div
             className="gameButton"
             onClick={() => {
@@ -180,7 +174,6 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return {
-    count: state.count,
     roundOver: state.roundOver,
   };
 };
