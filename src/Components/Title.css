@@ -11,7 +11,7 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	transition: 0.5s;
-	letter-spacing: 4px;
+	letter-spacing: 3px;
 	overflow: hidden;
 
 	background: linear-gradient(145deg, #2b2c2c, #333434);
@@ -93,5 +93,14 @@
 	50%,
 	100% {
 		bottom: 100%;
+	}
+}
+
+@media (max-width: 700px) {
+	.title {
+		font-size: 1.6em;
+		letter-spacing: 2px;
+		padding: 20px 25px;
+		margin: 25px 0;
 	}
 }

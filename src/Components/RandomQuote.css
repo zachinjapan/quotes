@@ -1,22 +1,28 @@
 .random-quote {
-  width: 90%;
-  height: 90%;
-  font-size: 1.2em;
-  font-weight: 500;
-  color: #adecff;
-  text-align: center;
+	width: 90%;
+	height: 90%;
+	font-size: 1.2em;
+	font-weight: 500;
+	color: #adecff;
+	text-align: center;
 }
 
 .random-quote-text {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 .twitter-share-button {
-  color: #4acdf5;
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
+	color: #4acdf5;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
 }
 
-.twitter-share-button span {
+@media (max-width: 700px) {
+	.random-quote-text {
+		font-size: 1.1em;
+	}
+	.twitter-share-button {
+		font-size: .75em;
+	}
 }
