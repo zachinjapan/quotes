@@ -10,3 +10,10 @@
   background-color: linear-gradient(100deg, #2b2c2c, #333434);
   box-shadow: 10px 10px 20px #222222, -10px -10px 20px #3e4040;
 }
+
+@media (max-width: 600px) {
+  .author-button {
+    font-size: 1.5em;
+    font-weight: 900;
+  }
+}

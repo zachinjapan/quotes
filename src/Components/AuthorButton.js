@@ -65,7 +65,7 @@ const AuthorButton = (props) => {
           }}
           disabled={true}
         >
-          {`${props.letter}: ${props.author}`}
+          {props.author}
         </button>
       ) : (
         <button
@@ -74,7 +74,7 @@ const AuthorButton = (props) => {
           disabled={false}
           onClick={clickHandler}
         >
-          {`${props.letter}: ${props.author}`}
+          {props.author}
         </button>
       )}
     </div>
