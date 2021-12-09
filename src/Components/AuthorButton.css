@@ -1,12 +1,21 @@
 .author-button {
-  /* this stops that anoying thing where you try to click on a button and you highlight the text instead */
-  user-select: none;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  width: 200px;
-  border-radius: 20px;
-  background-color: linear-gradient(100deg, #2b2c2c, #333434);
-  box-shadow: 10px 10px 20px #222222, -10px -10px 20px #3e4040;
+	/* this stops that anoying thing where you try to click on a button and you highlight the text instead */
+	user-select: none;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	font-family: "Alegreya";
+	text-align: center;
+	width: 200px;
+	border-radius: 20px;
+	background-color: linear-gradient(100deg, #2b2c2c, #333434);
+	box-shadow: 10px 10px 20px #222222, -10px -10px 20px #3e4040;
+}
+
+@media (max-width: 700px) {
+	.author-button {
+		width: 125px;
+		font-size: 11px;
+		padding: 10px 10px;
+	}
 }
