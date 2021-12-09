@@ -16,7 +16,6 @@ const TextPanel = (props) => {
               buttonColor={props.buttonColor}
               author={author}
               realAuthor={props.author}
-              letter={props.letter[index]}
             />
           ))}
         </div>

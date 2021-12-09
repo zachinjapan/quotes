@@ -91,7 +91,6 @@ function App(props) {
           // if the main button is clicked show the quote
           quote={gameStarted ? currentQuote : "Click to see a random quote"}
           author={gameStarted ? currentAuthor : "N/A"}
-          letter={["A", "B", "C", "D"]}
         />
         <div className="spacer"></div>
       </div>
@@ -107,7 +106,6 @@ function App(props) {
           allAuthors={allAuthors}
           quote={gameStarted ? currentQuote : "Click to see a random quote"}
           author={gameStarted ? currentAuthor : "N/A"}
-          letter={["A", "B", "C", "D"]}
         />
         <div>
           <div

@@ -19,3 +19,10 @@
 		padding: 10px 10px;
 	}
 }
+
+@media (max-width: 600px) {
+  .author-button {
+    font-size: 1.5em;
+    font-weight: 900;
+  }
+}
