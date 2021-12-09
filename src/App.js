@@ -24,13 +24,6 @@ function App(props) {
   let [allAuthors, setAllAuthors] = useState([]);
   const [gameStarted, setGameStarted] = useState(false);
   let [indexOfAuthorChecked, setIndexOfAuthorChecked] = useState(0);
-  // set 4 random numbers to used as the keys so that buttons rerender each time
-  let [keys, setKeys] = useState([
-    Math.floor(Math.random() * 1630),
-    Math.floor(Math.random() * 1630),
-    Math.floor(Math.random() * 1630),
-    Math.floor(Math.random() * 1630),
-  ]);
 
   // --------------------------------------------------------------------------------
   // helper functions
@@ -60,15 +53,6 @@ function App(props) {
       setIndexOfAuthorChecked((indexOfAuthorChecked += 1));
       return author;
     }
-  };
-
-  //function to set the keys to random numbers from 1- 1000
-  const setRandomKeys = () => {
-    let randomKeys = [];
-    for (let i = 0; i < 4; i++) {
-      randomKeys.push(Math.floor(Math.random() * 1000) + 1);
-    }
-    setKeys(randomKeys);
   };
 
   // --------------------------------------------------------------------------------
@@ -104,7 +88,6 @@ function App(props) {
         <TextPanel
           displayQuote={gameStarted}
           allAuthors={allAuthors}
-          keys={keys}
           // if the main button is clicked show the quote
           quote={gameStarted ? currentQuote : "Click to see a random quote"}
           author={gameStarted ? currentAuthor : "N/A"}
@@ -122,7 +105,6 @@ function App(props) {
         <TextPanel
           displayQuote={gameStarted}
           allAuthors={allAuthors}
-          keys={keys}
           quote={gameStarted ? currentQuote : "Click to see a random quote"}
           author={gameStarted ? currentAuthor : "N/A"}
           letter={["A", "B", "C", "D"]}
@@ -132,7 +114,7 @@ function App(props) {
             className="gameButton"
             onClick={() => {
               handleRoundStart();
-              setCorrectAuthorIndex(Math.floor(Math.random() * 1643));
+              setCorrectAuthorIndex(Math.floor(Math.random() * 1630));
               setGameStarted(true);
               setCurrentQuote(quotes[correctAuthorIndex].text);
               setCurrentAuthor(
@@ -142,9 +124,9 @@ function App(props) {
               );
               setAllAuthors(
                 [
-                  quotes[Math.floor(Math.random() * 1643)].author,
-                  quotes[Math.floor(Math.random() * 1643)].author,
-                  quotes[Math.floor(Math.random() * 1643)].author,
+                  quotes[Math.floor(Math.random() * 1630)].author,
+                  quotes[Math.floor(Math.random() * 1630)].author,
+                  quotes[Math.floor(Math.random() * 1630)].author,
                   quotes[correctAuthorIndex].author,
                 ]
                   .map((author) => {
@@ -157,7 +139,6 @@ function App(props) {
               );
 
               setIndexOfAuthorChecked(0);
-              setRandomKeys();
             }}
           >
             <span />

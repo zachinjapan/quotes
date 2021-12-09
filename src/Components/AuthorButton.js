@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import "./AuthorButton.css";
@@ -7,9 +6,6 @@ const AuthorButton = (props) => {
   // -----------------------------------------------------------------------------
   // variables
   // -----------------------------------------------------------------------------
-
-  const [buttonColor, setButtonColor] = useState("#303131");
-  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const notify = () =>
     toast("Nice Job! 👍", {
@@ -43,25 +39,14 @@ const AuthorButton = (props) => {
   // -----------------------------------------------------------------------------
   // helper functions
   // -----------------------------------------------------------------------------
-  function changeButtonColor(trueOrFalse) {
-    if (trueOrFalse) {
-      setButtonColor("#3AC357");
-    } else {
-      setButtonColor("#EE3116");
-    }
-  }
 
   // check if button clicked is correct
   function checkIfButtonValueIsAuthor(testAuthor, realAuthor) {
     if (testAuthor === realAuthor) {
-      changeButtonColor(true);
-      setButtonDisabled(true);
       notify();
       handleRoundOver();
       return true;
     } else {
-      changeButtonColor(false);
-      setButtonDisabled(true);
       handleRoundOver();
 
       return false;
@@ -85,8 +70,8 @@ const AuthorButton = (props) => {
       ) : (
         <button
           className="author-button"
-          style={{ backgroundColor: buttonColor, margin: "20px" }}
-          disabled={buttonDisabled}
+          style={{ backgroundColor: "#303131", margin: "20px" }}
+          disabled={false}
           onClick={clickHandler}
         >
           {`${props.letter}: ${props.author}`}
