@@ -1,14 +1,11 @@
-
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import "./AuthorButton.css";
 
-
 const AuthorButton = (props) => {
-	// -----------------------------------------------------------------------------
-	// variables
-	// -----------------------------------------------------------------------------
-
+  // -----------------------------------------------------------------------------
+  // variables
+  // -----------------------------------------------------------------------------
 
   const notify = () =>
     toast("Nice Job! 👍", {
@@ -22,20 +19,19 @@ const AuthorButton = (props) => {
       theme: "dark",
     });
 
+  // -----------------------------------------------------------------------------
+  // redux functions
+  // -----------------------------------------------------------------------------
 
-	// -----------------------------------------------------------------------------
-	// redux functions
-	// -----------------------------------------------------------------------------
+  const handleRoundOver = (evt) => {
+    props.dispatch({
+      type: "ROUND_OVER",
+    });
+  };
 
-	const handleRoundOver = (evt) => {
-		props.dispatch({
-			type: 'ROUND_OVER'
-		});
-	};
-
-	// -----------------------------------------------------------------------------
-	// event handlers
-	// -----------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------
+  // event handlers
+  // -----------------------------------------------------------------------------
 
   function clickHandler() {
     return checkIfButtonValueIsAuthor(props.author, props.realAuthor);
@@ -53,9 +49,9 @@ const AuthorButton = (props) => {
     } else {
       handleRoundOver();
 
-			return false;
-		}
-	}
+      return false;
+    }
+  }
 
   return (
     <div style={{ display: "inline-block" }}>
@@ -83,11 +79,10 @@ const AuthorButton = (props) => {
       )}
     </div>
   );
-
 };
 
 const mapStateToProps = (state) => ({
-	roundOver: state.roundOver
+  roundOver: state.roundOver,
 });
 
 export default connect(mapStateToProps)(AuthorButton);
