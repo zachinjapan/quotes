@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import "./AuthorButton.css";
 
-const AuthorButton = (props) => {
+const AuthorButton = (props: any) => {
   // -----------------------------------------------------------------------------
   // variables
   // -----------------------------------------------------------------------------
@@ -23,7 +23,7 @@ const AuthorButton = (props) => {
   // redux functions
   // -----------------------------------------------------------------------------
 
-  const handleRoundOver = (evt) => {
+  const handleRoundOver = () => {
     props.dispatch({
       type: "ROUND_OVER",
     });
@@ -41,7 +41,7 @@ const AuthorButton = (props) => {
   // -----------------------------------------------------------------------------
 
   // check if button clicked is correct
-  function checkIfButtonValueIsAuthor(testAuthor, realAuthor) {
+  function checkIfButtonValueIsAuthor(testAuthor: string, realAuthor: string) {
     if (testAuthor === realAuthor) {
       notify();
       handleRoundOver();
@@ -81,7 +81,7 @@ const AuthorButton = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: any) => ({
   roundOver: state.roundOver,
 });
 

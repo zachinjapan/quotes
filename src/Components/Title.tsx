@@ -1,6 +1,6 @@
 import "./Title.css";
 
-const Title = (props) => {
+const Title = (props: any) => {
   return (
     <div>
       <h1 className="title">

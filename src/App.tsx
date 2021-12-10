@@ -5,7 +5,7 @@ import TextPanel from "./Components/TextPanel";
 import Title from "./Components/Title";
 import { connect } from "react-redux";
 
-function App(props) {
+function App(props: any) {
   // --------------------------------------------------------------------------------
   // variables
   //----------------------------------------------------------------------------------
@@ -14,21 +14,21 @@ function App(props) {
   // round over (true/false)
 
   // local
-  const [quotes, setQuotes] = useState({});
-  const [currentQuote, setCurrentQuote] = useState("");
-  const [currentAuthor, setCurrentAuthor] = useState("");
+  const [quotes, setQuotes] = useState([{ text: "error", author: "error" }]);
+  const [currentQuote, setCurrentQuote] = useState("error");
+  const [currentAuthor, setCurrentAuthor] = useState("error");
   const [correctAuthorIndex, setCorrectAuthorIndex] = useState(
     Math.floor(Math.random() * 1630)
   );
   // array of authors to be set as the correct author and 3 random authors then randomized
-  let [allAuthors, setAllAuthors] = useState([]);
+  let [allAuthors, setAllAuthors] = useState(["error"]);
   const [gameStarted, setGameStarted] = useState(false);
   let [indexOfAuthorChecked, setIndexOfAuthorChecked] = useState(0);
 
   // --------------------------------------------------------------------------------
   // helper functions
   //----------------------------------------------------------------------------------
-  const replaceNull = (author) => {
+  const replaceNull = (author: string) => {
     if (author === null) {
       return "Unknown";
     } else {
@@ -36,7 +36,7 @@ function App(props) {
     }
   };
 
-  const replaceDuplicateAuthor = (author) => {
+  const replaceDuplicateAuthor = (author: string) => {
     if (
       author === quotes[correctAuthorIndex].author &&
       indexOfAuthorChecked !== 3
@@ -70,7 +70,7 @@ function App(props) {
   //redux calls
   //----------------------------------------------------------------------------------
 
-  const handleRoundStart = (evt) => {
+  const handleRoundStart = () => {
     props.dispatch({
       type: "ROUND_START",
     });
@@ -151,7 +151,7 @@ function App(props) {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
   return {
     roundOver: state.roundOver,
   };
