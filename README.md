@@ -62,9 +62,9 @@ Fork, request, or contact Zach Stone or Clifford Morin
 [![LinkedIn](https://img.shields.io/badge/My%20LinkedIn-Click%20Me!-grey?style=plastic&logo=LinkedIn&labelColor=blue)](https://www.linkedin.com/in/zach-stone-45b649211/)
 
 
-このプロジェクトに関するご質問は、zachinjapan888s@gmail.comまでお気軽にご連絡ください。
+このプロジェクトに関するご質問は、Zach.Stone.Developer@gmail.comまでお気軽にご連絡ください。
 
-Feel free to reach Zach at zachinjapan888s@gmail.com with any question regarding this project!
+Feel free to reach Zach at Zach.Stone.Developer@gmail.com with any question regarding this project!
 
 
 #### Cliford Morin
