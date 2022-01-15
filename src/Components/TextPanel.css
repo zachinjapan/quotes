@@ -3,11 +3,11 @@
   justify-content: center;
   align-items: center;
   width: 75%;
-  height: 75%;
   padding-top: 1%;
   padding-bottom: 1%;
   position: relative;
   border-radius: 50px;
   background: #303131;
   box-shadow: inset 20px 20px 37px #292a2a, inset -20px -20px 37px #373838;
+  margin: 50px;
 }
