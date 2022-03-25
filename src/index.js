@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 // redux stuff
 import { createStore } from "redux";
@@ -21,3 +22,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+serviceWorkerRegistration.register();
